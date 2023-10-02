@@ -3,17 +3,16 @@ import axios from 'axios';
 const refs = {
   searchForm: document.querySelector('#search-form'),
   inputSearch: document.querySelector("input[name='searchQuery']"),
+  gallery: document.querySelector('.gallery'),
 };
 
 refs.searchForm.addEventListener('submit', handlerForm);
 
-function handlerForm(event) {
+async function handlerForm(event) {
   event.preventDefault();
-  const inputValue = event.currentTarget.elements[0].value;
-  inputValue.trim();
-
-  const arrImages = axiosImages(inputValue);
-  const newArrImages = arrImages.map(
+  const inputValue = event.currentTarget.elements[0].value.trim();
+  const arrImages = await axiosImages(inputValue);
+  const newArrImages = await arrImages.map(
     ({
       webformatURL,
       largeImageURL,
@@ -23,9 +22,19 @@ function handlerForm(event) {
       comments,
       downloads,
     }) => {
-      
+      return {
+        webformatURL,
+        largeImageURL,
+        tags,
+        likes,
+        views,
+        comments,
+        downloads,
+      };
     }
   );
+  const images = newArrImages.map(image => createMarkup(image)).join('');
+  refs.gallery.innerHTML = images;
 }
 
 async function axiosImages(name) {
@@ -49,6 +58,39 @@ async function axiosImages(name) {
 
   const data = response.data.hits;
 
-  const arrData = data.map(image => console.log(image));
-  return arrData;
+  return data;
+}
+
+function createMarkup({
+  webformatURL,
+  largeImageURL,
+  tags,
+  likes,
+  views,
+  comments,
+  downloads,
+}) {
+  return `
+  <div class="photo-card">
+  <img src="${webformatURL}" alt="${tags}" loading="lazy" />
+  <div class="info">
+    <p class="info-item">
+      <b>Likes</b>
+      ${likes}
+    </p>
+    <p class="info-item">
+      <b>Views</b>
+      ${views}
+    </p>
+    <p class="info-item">
+      <b>Comments</b>
+      ${comments}
+    </p>
+    <p class="info-item">
+      <b>Downloads</b>
+      ${downloads}
+    </p>
+  </div>
+</div>
+`;
 }
