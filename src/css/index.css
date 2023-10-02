@@ -2,21 +2,20 @@
 
 .search {}
 
-.search__wrapper {
+.search-wrapper {
     display: flex;
     justify-content: center;
     background-color: #2b3487;
     padding: 14px 0;
 }
 
-.search__form {
+.search-form {
     position: relative;
     display: flex;
     align-items: center;
-    overflow: hidden;
 }
 
-.search__form-input {
+input {
     display: block;
     width: 450px;
     height: 42px;
@@ -35,12 +34,11 @@
     box-shadow: 0 0 0 14px rgba(13, 110, 253, .25);
 }
 
-.search__button {
+button {
     position: absolute;
     top: 50%;
     right: 0;
     transform: translateY(-50%);
-    width: 42px;
     height: 42px;
     cursor: pointer;
     border: none;

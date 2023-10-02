@@ -12,18 +12,16 @@
 
 <body>
   <section class="search">
-    <div class="search__wrapper">
-      <form class="search__form">
-        <input class="search__form-input" type="text" name="search" placeholder="Search images...">
-        <button type="submit" class="search__button">
-          <svg class="search__button-icon">
-            <use href="./images/icons.svg#icon-search"></use>
-          </svg>
-        </button>
+    <div class="search-wrapper">
+      <form class="search-form" id="search-form">
+        <input type="text" name="searchQuery" autocomplete="off" placeholder="Search images..." />
+        <button type="submit">Search</button>
       </form>
     </div>
 
-    <ul class="search__list"></ul>
+    <div class="gallery">
+      <!-- Картки зображень -->
+    </div>
   </section>
 </body>
 
