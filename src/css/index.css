@@ -1,6 +1,13 @@
 @import '~node_modules/modern-normalize/modern-normalize.css';
 
-.search {}
+p {
+    margin: 0;
+}
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
 
 .search-wrapper {
     display: flex;
@@ -50,4 +57,34 @@ button {
 .search__button-icon {
     width: 18px;
     height: 18px;
+}
+
+.gallery {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 24px;
+    padding: 0 20px;
+}
+
+.photo-card {
+    flex-basis: calc((100% - 72px) / 4);
+}
+
+.photo-card img {
+    /* width: 100%; */
+    max-height: 250px;
+    height: 100%;
+    object-fit: cover;
+}
+
+.info {
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.photo-card b{
+    display: block;
 }
