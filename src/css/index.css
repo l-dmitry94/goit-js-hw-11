@@ -14,7 +14,9 @@ img {
     max-width: 100%;
     height: auto;
 }
-
+.search {
+    padding-bottom: 120px;
+}
 .search-wrapper {
     position: fixed;
     top: 0;
@@ -74,6 +76,7 @@ input {
     flex-wrap: wrap;
     gap: 24px;
     padding: 120px 20px 20px;
+    margin-bottom: 50px;
 }
 
 .photo-card {
@@ -89,8 +92,12 @@ input {
 .info {
     display: flex;
     justify-content: space-between;
+    border: 1px solid rgba(20, 23, 28, 0.25);
+    border-top: 0;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
     text-align: center;
-    margin-top: 20px;
+    padding: 20px 5px 10px;
 }
 
 .photo-card b{
@@ -99,8 +106,14 @@ input {
 
 .load-more {
     display: block;
-    width: 120px;
-    height: 30px;
+    width: 150px;
+    height: 46px;
+    background-color: #192994;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
     margin: 0 auto;
 }
 
