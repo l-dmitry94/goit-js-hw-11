@@ -31,7 +31,7 @@ async function handlerForm(event) {
     Notiflix.Loading.standard();
     refs.galleryList.innerHTML = '';
 
-    observer.unobserve(refs.target)
+    observer.unobserve(refs.target);
 
     const { searchQuery } = event.currentTarget.elements;
     inputValue = searchQuery.value.trim();
@@ -40,10 +40,9 @@ async function handlerForm(event) {
         Notiflix.Notify.failure(
             'Sorry, there are no images matching your search query. Please try again.'
         );
-        Notiflix.Loading.remove();
+        Notiflix.Loading.remove()
         return;
     }
-
     try {
         const data = await getImages(inputValue, currentPage);
         if (data.hits.length !== 0) {
